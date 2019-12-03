@@ -13,7 +13,7 @@ namespace EstacionamentoFramework
             FormEstacionamento _form = (FormEstacionamento)form;
             while (true)
             {
-                if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount > 0)
+                if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount < FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount)
                 {
                     FormEstacionamento.estacionamento.filaEntrada.Wait();
                     FormEstacionamento.estacionamento.vagasDisponiveis.Wait();
@@ -21,9 +21,10 @@ namespace EstacionamentoFramework
                     Console.WriteLine("Dirija-se a vaga: " + (numeroVaga + 1));
                     Vaga.OcupaVaga(numeroVaga);
                 }
-                else if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount > 0)
+                else
                 {
                     Console.WriteLine("Vagas Esgotas, Favor aguardar!");
+                    FormEstacionamento.estacionamento.filaEntrada.Wait();
                 }
             }
         }
@@ -31,7 +32,7 @@ namespace EstacionamentoFramework
         {
             while (true)
             {
-                if (FormEstacionamento.estacionamento.filaSaida.CurrentCount > 0 && FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount < FormEstacionamento.estacionamento.quantidadeVagas)
+                if (FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount < FormEstacionamento.estacionamento.quantidadeVagas)
                 {
                     FormEstacionamento.estacionamento.filaSaida.Wait();
                     int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.Release();

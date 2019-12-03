@@ -57,7 +57,7 @@ namespace EstacionamentoFramework
 
         private void buttonSairCarro_Click(object sender, EventArgs e)
         {
-            int quantidadeCarros = Convert.ToInt32(textBoxQuantidadeCarroEntrar.Text);
+            int quantidadeCarros = Convert.ToInt32(textBoxQuantidadeCarroSair.Text);
             for (int i = 0; i < quantidadeCarros; i++)
             {
                 estacionamento.filaSaida.Release();
