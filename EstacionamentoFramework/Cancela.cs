@@ -32,12 +32,21 @@ namespace EstacionamentoFramework
         {
             while (true)
             {
-                if (FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount < FormEstacionamento.estacionamento.quantidadeVagas)
+                if (FormEstacionamento.estacionamento.filaSaida.CurrentCount > 0)
                 {
-                    FormEstacionamento.estacionamento.filaSaida.Wait();
-                    int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.Release();
-                    Console.WriteLine("Vaga numero " + (numeroVaga + 1) + " Liberada");
-                    Vaga.LiberaVaga(numeroVaga);                    
+                    if (FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount < FormEstacionamento.estacionamento.quantidadeVagas)
+                    {
+                        FormEstacionamento.estacionamento.filaSaida.Wait();
+                        _ = FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount;
+                        int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.Release();
+                        Console.WriteLine("Vaga numero " + (numeroVaga + 1) + " Liberada");
+                        Vaga.LiberaVaga(numeroVaga);
+                    }
+                    else
+                    {
+                        FormEstacionamento.estacionamento.filaSaida.Wait();
+                        Console.WriteLine("Todas as Vagas estão liberadas, Favor contatar o supote");
+                    }
                 }
             }
 
