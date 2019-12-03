@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -49,19 +50,13 @@ namespace EstacionamentoFramework
         private void buttonEntraCarro_Click(object sender, EventArgs e)
         {
             int quantidadeCarros = Convert.ToInt32(textBoxQuantidadeCarroEntrar.Text);
-            for (int i = 0; i < quantidadeCarros; i++)
-            {
-                estacionamento.filaEntrada.Release();
-            }
+            estacionamento.filaEntrada = new SemaphoreSlim(quantidadeCarros);
         }
 
         private void buttonSairCarro_Click(object sender, EventArgs e)
         {
             int quantidadeCarros = Convert.ToInt32(textBoxQuantidadeCarroSair.Text);
-            for (int i = 0; i < quantidadeCarros; i++)
-            {
-                estacionamento.filaSaida.Release();
-            }
+            estacionamento.filaSaida = new SemaphoreSlim(quantidadeCarros);
         }
     }
 }

@@ -13,18 +13,21 @@ namespace EstacionamentoFramework
             FormEstacionamento _form = (FormEstacionamento)form;
             while (true)
             {
-                if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount < FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount)
+                if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount > 0)
                 {
-                    FormEstacionamento.estacionamento.filaEntrada.Wait();
-                    FormEstacionamento.estacionamento.vagasDisponiveis.Wait();
-                    int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount;
-                    Console.WriteLine("Dirija-se a vaga: " + (numeroVaga + 1));
-                    Vaga.OcupaVaga(numeroVaga);
-                }
-                else
-                {
-                    Console.WriteLine("Vagas Esgotas, Favor aguardar!");
-                    FormEstacionamento.estacionamento.filaEntrada.Wait();
+                    if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount <= FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount)
+                    {
+                        FormEstacionamento.estacionamento.filaEntrada.Wait();
+                        FormEstacionamento.estacionamento.vagasDisponiveis.Wait();
+                        int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount;
+                        Console.WriteLine("Dirija-se a vaga: " + (numeroVaga + 1));
+                        Vaga.OcupaVaga(numeroVaga);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vagas Esgotas, Favor aguardar!");
+                        FormEstacionamento.estacionamento.filaEntrada.Wait();
+                    }
                 }
             }
         }
