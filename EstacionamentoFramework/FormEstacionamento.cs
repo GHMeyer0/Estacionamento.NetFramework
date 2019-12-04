@@ -29,7 +29,7 @@ namespace EstacionamentoFramework
             panelIO.Enabled = true;
             
 
-            for (int i = 0; i < estacionamento.cancelaEntrada.Length; i++)
+            for (int i = 1; i < estacionamento.cancelaEntrada.Length; i++)
             {
                 estacionamento.cancelaEntrada[i].Start();
             }

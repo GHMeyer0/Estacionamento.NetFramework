@@ -14,7 +14,7 @@ namespace EstacionamentoFramework
             {
                 if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount > 0)
                 {
-                    if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount < FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount)
+                    if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount <= FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount)
                     {
                         FormEstacionamento.estacionamento.filaEntrada.Wait();
                         FormEstacionamento.estacionamento.vagasDisponiveis.Wait();
