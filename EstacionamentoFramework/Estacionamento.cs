@@ -7,14 +7,12 @@ namespace EstacionamentoFramework
 {
     public class Estacionamento
     {
-        public Vaga[] vagas;
         public SemaphoreSlim vagasDisponiveis;
         public SemaphoreSlim filaEntrada, filaSaida;
         public int quantidadeVagas;
         public readonly Thread[] cancelaEntrada, cancelaSaida;
         public Estacionamento(int quantidadeVagas, int entradas, int saidas)
         {
-            vagas = Vaga.CriarVagas(quantidadeVagas);
             this.quantidadeVagas = quantidadeVagas;
             vagasDisponiveis = new SemaphoreSlim(quantidadeVagas, quantidadeVagas);
             filaEntrada = new SemaphoreSlim(0);

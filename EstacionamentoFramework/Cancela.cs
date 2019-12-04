@@ -20,7 +20,6 @@ namespace EstacionamentoFramework
                         FormEstacionamento.estacionamento.vagasDisponiveis.Wait();
                         int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount;
                         Console.WriteLine("Dirija-se a vaga: " + (numeroVaga + 1));
-                        Vaga.OcupaVaga(numeroVaga);
                     }
                     else
                     {
@@ -42,7 +41,6 @@ namespace EstacionamentoFramework
                         _ = FormEstacionamento.estacionamento.vagasDisponiveis.CurrentCount;
                         int numeroVaga = FormEstacionamento.estacionamento.vagasDisponiveis.Release();
                         Console.WriteLine("Vaga numero " + (numeroVaga + 1) + " Liberada");
-                        Vaga.LiberaVaga(numeroVaga);
                     }
                     else
                     {
