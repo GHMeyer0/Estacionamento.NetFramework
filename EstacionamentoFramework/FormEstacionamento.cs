@@ -25,8 +25,9 @@ namespace EstacionamentoFramework
             int quantidadeCancelaEntrada = Convert.ToInt32(textBoxCancelaEntrada.Text);
             int quantidadeCancelaSaida = Convert.ToInt32(textBoxCancelaSaida.Text);
             panelConfig.Enabled = false;
-            panelIO.Enabled = true;
             estacionamento = new Estacionamento(quantidadeVagas, quantidadeCancelaEntrada, quantidadeCancelaSaida);
+            panelIO.Enabled = true;
+            
 
             for (int i = 0; i < estacionamento.cancelaEntrada.Length; i++)
             {
