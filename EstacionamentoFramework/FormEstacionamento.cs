@@ -31,24 +31,13 @@ namespace EstacionamentoFramework
 
             for (int i = 0; i < estacionamento.cancelaEntrada.Length; i++)
             {
-                estacionamento.cancelaEntrada[i].Start(this);
+                estacionamento.cancelaEntrada[i].Start();
             }
             for (int i = 0; i < estacionamento.cancelaSaida.Length; i++)
             {
-                estacionamento.cancelaSaida[i].Start(this);
+                estacionamento.cancelaSaida[i].Start();
             }
         }
-
-        public static void UpdateOutput(FormEstacionamento form, string value)
-        {
-            form.labelOutput.Text += value;
-        }
-
-        public static void UpdateGrid(FormEstacionamento form)
-        {
-
-        }
-
         private void buttonEntraCarro_Click(object sender, EventArgs e)
         {
             int quantidadeCarros = Convert.ToInt32(textBoxQuantidadeCarroEntrar.Text);

@@ -8,7 +8,7 @@ namespace EstacionamentoFramework
     public static class Cancela
     {
         public static SemaphoreSlim fila = new SemaphoreSlim(1, 1);
-        public static void Entrada(object form)
+        public static void Entrada()
         {
             while (true)
             {
@@ -30,7 +30,7 @@ namespace EstacionamentoFramework
                 }
             }
         }
-        public static void Saida(object form)
+        public static void Saida()
         {
             while (true)
             {
