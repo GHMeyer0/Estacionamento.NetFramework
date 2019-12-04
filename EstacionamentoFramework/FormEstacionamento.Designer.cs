@@ -39,13 +39,11 @@
             this.buttonEntraCarro = new System.Windows.Forms.Button();
             this.textBoxQuantidadeCarroEntrar = new System.Windows.Forms.TextBox();
             this.panelConfig = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Livre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxQuantidadeCarroSair = new System.Windows.Forms.TextBox();
             this.buttonSairCarro = new System.Windows.Forms.Button();
+            this.panelIO = new System.Windows.Forms.Panel();
             this.panelConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelIO.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonIniciar
@@ -122,9 +120,9 @@
             // 
             // buttonEntraCarro
             // 
-            this.buttonEntraCarro.Location = new System.Drawing.Point(24, 312);
+            this.buttonEntraCarro.Location = new System.Drawing.Point(23, 28);
             this.buttonEntraCarro.Name = "buttonEntraCarro";
-            this.buttonEntraCarro.Size = new System.Drawing.Size(107, 20);
+            this.buttonEntraCarro.Size = new System.Drawing.Size(110, 20);
             this.buttonEntraCarro.TabIndex = 4;
             this.buttonEntraCarro.Text = "Entrar Carro";
             this.buttonEntraCarro.UseVisualStyleBackColor = true;
@@ -132,7 +130,7 @@
             // 
             // textBoxQuantidadeCarroEntrar
             // 
-            this.textBoxQuantidadeCarroEntrar.Location = new System.Drawing.Point(136, 313);
+            this.textBoxQuantidadeCarroEntrar.Location = new System.Drawing.Point(138, 28);
             this.textBoxQuantidadeCarroEntrar.Name = "textBoxQuantidadeCarroEntrar";
             this.textBoxQuantidadeCarroEntrar.Size = new System.Drawing.Size(86, 20);
             this.textBoxQuantidadeCarroEntrar.TabIndex = 5;
@@ -152,34 +150,9 @@
             this.panelConfig.Size = new System.Drawing.Size(246, 141);
             this.panelConfig.TabIndex = 6;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Numero,
-            this.Livre});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(443, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(243, 390);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "Vaga";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
-            // 
-            // Livre
-            // 
-            this.Livre.HeaderText = "Disponivel";
-            this.Livre.Name = "Livre";
-            this.Livre.ReadOnly = true;
-            // 
             // textBoxQuantidadeCarroSair
             // 
-            this.textBoxQuantidadeCarroSair.Location = new System.Drawing.Point(136, 339);
+            this.textBoxQuantidadeCarroSair.Location = new System.Drawing.Point(138, 54);
             this.textBoxQuantidadeCarroSair.Name = "textBoxQuantidadeCarroSair";
             this.textBoxQuantidadeCarroSair.Size = new System.Drawing.Size(86, 20);
             this.textBoxQuantidadeCarroSair.TabIndex = 9;
@@ -187,31 +160,40 @@
             // 
             // buttonSairCarro
             // 
-            this.buttonSairCarro.Location = new System.Drawing.Point(24, 338);
+            this.buttonSairCarro.Location = new System.Drawing.Point(22, 54);
             this.buttonSairCarro.Name = "buttonSairCarro";
-            this.buttonSairCarro.Size = new System.Drawing.Size(107, 20);
+            this.buttonSairCarro.Size = new System.Drawing.Size(111, 20);
             this.buttonSairCarro.TabIndex = 8;
             this.buttonSairCarro.Text = "Sair Carro";
             this.buttonSairCarro.UseVisualStyleBackColor = true;
             this.buttonSairCarro.Click += new System.EventHandler(this.buttonSairCarro_Click);
             // 
+            // panelIO
+            // 
+            this.panelIO.Controls.Add(this.buttonEntraCarro);
+            this.panelIO.Controls.Add(this.textBoxQuantidadeCarroSair);
+            this.panelIO.Controls.Add(this.textBoxQuantidadeCarroEntrar);
+            this.panelIO.Controls.Add(this.buttonSairCarro);
+            this.panelIO.Enabled = false;
+            this.panelIO.Location = new System.Drawing.Point(12, 206);
+            this.panelIO.Name = "panelIO";
+            this.panelIO.Size = new System.Drawing.Size(246, 100);
+            this.panelIO.TabIndex = 10;
+            // 
             // FormEstacionamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 390);
-            this.Controls.Add(this.textBoxQuantidadeCarroSair);
-            this.Controls.Add(this.buttonSairCarro);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(265, 316);
+            this.Controls.Add(this.panelIO);
             this.Controls.Add(this.panelConfig);
-            this.Controls.Add(this.textBoxQuantidadeCarroEntrar);
-            this.Controls.Add(this.buttonEntraCarro);
             this.Controls.Add(this.labelOutput);
             this.Name = "FormEstacionamento";
             this.Text = "FormEstacionamento";
             this.panelConfig.ResumeLayout(false);
             this.panelConfig.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelIO.ResumeLayout(false);
+            this.panelIO.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,10 +212,8 @@
         private System.Windows.Forms.Button buttonEntraCarro;
         private System.Windows.Forms.TextBox textBoxQuantidadeCarroEntrar;
         private System.Windows.Forms.Panel panelConfig;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Livre;
         private System.Windows.Forms.TextBox textBoxQuantidadeCarroSair;
         private System.Windows.Forms.Button buttonSairCarro;
+        private System.Windows.Forms.Panel panelIO;
     }
 }
