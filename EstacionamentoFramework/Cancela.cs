@@ -10,7 +10,6 @@ namespace EstacionamentoFramework
         public static SemaphoreSlim fila = new SemaphoreSlim(1, 1);
         public static void Entrada(object form)
         {
-            FormEstacionamento _form = (FormEstacionamento)form;
             while (true)
             {
                 if (FormEstacionamento.estacionamento.filaEntrada.CurrentCount > 0)
